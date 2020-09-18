@@ -26,7 +26,7 @@ else {
         cursor: pointer;
         transition: all .08s linear;
         position: fixed;
-        bottom: 0px;
+        bottom: 15px;
         right: 0px;
         margin: 16px;
         display: flex;
@@ -35,26 +35,28 @@ else {
     }
 
     .df-btn-text {
-        min-width: 82px;
+        min-width: 60px;
         color: #3c4043;
         display: inline-flex;
         align-items: center;
         font-weight: 500;
-        letter-spacing: .25px;
+        letter-spacing: 2.25px;
         transition: all .08s linear;
         font-size: .875rem;
-        height: 53px;
-        border-radius: 15px 15px 0px 0px;
+        height: 30px;
+        border-radius: 15px 0px;
     }
 
     .df-btn-text:before {
-        min-width: 82px;
-        height: 53px;
+        width: 60px;
+        height: 60px;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 44px;
-        background-image: url('assets/chat.svg');
-        content: ''
+        background-size: 35px;
+        background-image: url(assets/chat.svg);
+        background-color: #f44336;
+        content: '';
+        border-radius: 50px;
     }
 
     .df-btn:hover {
@@ -67,11 +69,12 @@ else {
 
     .df-btn:not(.df-closed) > .df-btn-text:before {
         background-size: 24px;        
-        background-image: url('assets/close.svg'), url('assets/icons8-chat-64.png');
-        width: 359px;
-        background-color: #618ca2;
+        background-image: url('assets/close.svg');
+        width: 370px;
+        background-color: #f44336;
         background-position: right, left;
-        content: 'FAQ Bot';
+        content: 'Evosys Buddy';
+        justify-content: left;
         font-size: 17px;
         padding-top: 12px;
         border-radius: 15px 15px 0px 0px;
@@ -89,7 +92,7 @@ else {
     }
 
     .df-btn:not(.df-closed) > .df-btn-content {
-        padding-bottom: 16px;
+        padding-bottom: 9px;
     }
 
     .df-closed > .df-btn-content {
@@ -152,7 +155,7 @@ else {
         <button class="df-btn df-closed" onclick="dfToggle()">
         <div class="df-btn-text">
         </div>
-            <iframe class="df-btn-content" src="https://frontend-dot-service-desk-chatbot-dev.el.r.appspot.com" allow="microphone *"></iframe>
+            <iframe class="df-btn-content" src="https://frontend-dot-service-desk-chatbot-dev.el.r.appspot.com/" allow="microphone *"></iframe>
         </button>
     `)
 
@@ -160,7 +163,6 @@ else {
     window.dfToggle = () => {
         document.querySelector('.df-btn').classList = dfToggled ? 'df-btn df-closed' : 'df-btn'
         // document.querySelector('.df-btn-text').innerText = dfToggled ? '' : (config.closeText || 'Close')
-        console.log(dfToggled);
         dfToggled = !dfToggled        
     }
 }
